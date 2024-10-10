@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習01</title>
+</head>
+
+<body>
+
+    <p id="result">0</p>
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+
+    <script>
+
+        let x = 0;  //xをnumへの置き換え
+
+        const plus = document.getElementById('plus');
+        plus.innerHTML = '数字を増やす';
+        console.log(plus);
+
+        const minus = document.getElementById('minus');
+        minus.innerHTML = '数字を減らす';
+        console.log(minus);
+
+        const result = document.getElementById('result')
+
+        plus.addEventListener('click', function () {
+            x += 1;
+            console.log(x);
+            result.innerHTML = x;
+        });
+
+        minus.addEventListener('click', function () {
+            x -= 1;
+            console.log(x);
+            result.innerHTML = x;
+        })
+
+        /* 練習01
+        ①plusを取得　②変数を追加　③イベントを設定　consoleで出すのを忘れない */
+
+        /* 応用問題
+        innerHTMLは内容の可視化　''で囲われているものを表示する　result.innerHTML = x;　そのためxは囲わず内容を変化させる */
+
+
+        let val = 1;
+        console.log(`url($(val = 1)).png`);
+
+    </script>
+
+</body>
+
+</html>
