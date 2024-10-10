@@ -18,8 +18,26 @@
 
     <script>
 
-        const plus = document.getElementById('plus')
-        const set = document.getElementById('set')
+        let x = 0;
+
+        const plus = document.getElementById('plus');
+        const set = document.getElementById('set');
+
+        const result = document.getElementById('result');
+        const photo = document.getElementById('photo');
+
+        plus.addEventListener('click', function () {
+            x += 1;
+            console.log(x);
+            set.innerHTML = x;
+        });
+
+        set.addEventListener('click', function () {
+            console.log(x);
+            result.innerHTML = `https://picsum.photos/400/300?image=` + x;
+
+            photo.setAttribute('src', `https://picsum.photos/400/300?image=` + x);
+        });
 
     </script>
 
