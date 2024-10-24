@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件分岐</title>
+</head>
+
+<body>
+
+    <script>
+
+        let fruit = 'りんご';
+        console.log(fruit == 'りんご');
+        console.log(fruit == 'ばなな');
+
+        if (fruit == 'ばなな') {
+            console.log('りんごがあります。');
+        }
+
+
+        let time = 2024;
+        if (time >= 2019) {
+            console.log(`令和${time - 2018}年！`);
+        }
+
+
+        let num = 10;
+        if (num % 2 === 0) {
+            //numが2で割り切れたら偶数
+            console.log(`偶数！`);
+        } else {
+            console.log(`奇数！`);
+        }
+
+
+        let year = 2024;
+        if (year >= 2025) {
+            console.log(`未来！`);
+        } else if (year >= 2019) {
+            console.log(`令和${year - 2018}年！`);
+        } else if (year >= 1990) {
+            console.log(`平成${year - 1981}年！`);
+        } else if (year >= 1926) {
+            console.log(`昭和${year - 1925}年！`);
+        } else {
+            console.log(`大昔！`);
+        }
+
+    </script>
+
+</body>
+
+</html>
