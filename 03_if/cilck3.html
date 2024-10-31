@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クリックゲームその3</title>
+
+
+    <style>
+        #photo {
+            transition: .5s;
+        }
+
+        .finish {
+            transform: rotate(720deg) scale(0);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <img id="photo" src="https://trident.takagino.net/doc2024/javascript/assets/03/monster.png" alt="">
+    <p id="hp">HP:10</p>
+
+    <script>
+
+        const photo = document.getElementById('photo');
+        const hp = document.getElementById('hp');
+
+        let num = 10;
+
+        photo.addEventListener('click', function () {
+            if (num > 0) {
+                num -= 1;
+                hp.innerHTML = `HP:${num}`;
+            }
+            if (num === 0) {
+                photo.classList.add('finish');
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch文</title>
+</head>
+
+<body>
+
+    <!-- <script>
+
+        let fruit = 'すいか'
+
+        switch (fruit) {
+            case 'りんご':
+                console.log('りんごがあります。');
+                break;
+            case 'ばなな':
+            case 'すいか':
+                console.log('ばななかすいかがあります');
+                break;
+            default:
+                console.log('フルーツが見つかりません。');
+        }
+
+    </script> -->
+
+
+    <button id="btn" class="red">click!</button>
+
+    <script>
+
+        const btn = document.getElementById('btn');
+
+        btn.addEventListener('click', function () {
+            const className = btn.classList.value;
+
+            switch (className) {
+                case 'red':
+                    document.body.style.backgroundColor = '#ff0000';
+                    break;
+                case 'green':
+                    document.body.style.backgroundColor = '#00ff00'
+                    break;
+                case 'blue':
+                    document.body.style.backgroundColor = '#0000ff'
+                    break;
+                default:
+                    document.body.style.backgroundColor = '#000000';
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

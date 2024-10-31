@@ -22,6 +22,16 @@
 
         sample.classList.replace('fuga', 'hogera'); //置き換え
 
+
+        sample.addEventListener('click', function () {
+            sample.classList.toggle('piyo');
+        })
+
+
+        if (sample.classList.contains('hoge')) {
+            console.log('ある');
+        }
+
     </script>
 
 </body>
