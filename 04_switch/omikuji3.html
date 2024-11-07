@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>おみくじその２</title>
+    <title>おみくじその.3</title>
 
 
     <style>
@@ -19,6 +19,10 @@
         .active {
             transform: rotateY(360deg);
         }
+
+        li {
+            list-style-type: none;
+        }
     </style>
 
 </head>
@@ -30,6 +34,13 @@
         <img id="result" src="https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/omikuji.png" alt="占う">
     </p>
     <p id="message">何か一言が表示されます。</p>
+    <ul>
+        <li id="count_d"></li>
+        <li id="count_c"></li>
+        <li id="count_s"></li>
+        <li id="count_k"></li>
+        <li id="count_b"></li>
+    </ul>
 
     <script>
     </script>
@@ -40,30 +51,81 @@
         const result = document.getElementById('result');
         const message = document.getElementById('message');
 
+        const count_d = document.getElementById('count_d');
+        const count_c = document.getElementById('count_c');
+        const count_s = document.getElementById('count_s');
+        const count_k = document.getElementById('count_k');
+        const count_b = document.getElementById('count_b');
+
+        let daikichi = 0;
+        let chuukichi = 0;
+        let syokichi = 0;
+        let kyo = 0;
+        let daikyo = 0;
+
         btn.addEventListener('click', function () {
-            let num = Math.floor(Math.random() * 5);
+            let num = Math.floor(Math.random() * 9);
             console.log(num);
+
 
             switch (num) {
                 case 0:
                     result.setAttribute('src', 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/daikichi.png');
-                    message.innerHTML = ('探し物が見つかるかも！');
+
+                    daikichi += 1;
+                    count_d.innerHTML = `大吉:${daikichi}`
+
+                    //大吉が出るたびに文章が変わる
+                    switch (daikichi) {
+                        case 1:
+                            message.innerHTML = 'セールで物が安く手に入るかも！';
+                            break;
+                        case 2:
+                            message.innerHTML = '子猫に懐かれるかも！';
+                            break;
+                        default:
+                            message.innerHTML = '探し物が見つかるかも！';
+                            break;
+                    }
+
                     break;
                 case 1:
+                case 2:
                     result.setAttribute('src', 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/chuukichi.png');
                     message.innerHTML = ('勢いさえあれば乗り切れられるかも！');
-                    break;
-                case 2:
-                    result.setAttribute('src', 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/syoukichi.png');
-                    message.innerHTML = ('お菓子がもらえるかも');
+
+                    chuukichi += 1;
+                    count_c.innerHTML = `中吉:${chuukichi}`
                     break;
                 case 3:
+                case 4:
+                case 5:
+                    result.setAttribute('src', 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/syoukichi.png');
+                    message.innerHTML = ('お菓子がもらえるかも');
+
+                    syokichi += 1;
+                    count_s.innerHTML = `小吉:${syokichi}`
+                    break;
+                case 6:
+                case 7:
                     result.setAttribute('src', 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/kyou.png');
                     message.innerHTML = ('階段でつまずくかも...');
+
+                    kyo += 1;
+                    count_k.innerHTML = `凶:${kyo}`
                     break;
-                default:
+
+                case 8:
                     result.setAttribute('src', 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/daikyou.png');
                     message.innerHTML = ('上には気をつけて');
+
+                    daikyo += 1;
+                    count_b.innerHTML = `大凶:${daikyo}`
+                    break;
+
+                default:
+                    console.log('エラー');
+                    break;
             }
 
             result.classList.toggle('active');
