@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関数とタイマー - ストップゲーム -</title>
+
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="start">START</button>
+    <button class="stop">STOP</button>
+    <p class="count">0</p>
+    <p class="comment">おしい！</p>
+
+    <script>
+
+        const start = document.querySelector(".start");
+        const stop = document.querySelector(".stop");
+        const count = document.querySelector(".count");
+        const comment = document.querySelector(".comment");
+        let timer;
+        let num = 0;
+        comment.innerHTML = "100を目指そう！";
+
+        const countUp = () => {
+            console.log(num++);
+            count.innerHTML = num;
+        }
+
+        start.addEventListener("click", () => {
+            num = 0;
+            comment.innerHTML = ""; /* 表示しないため */
+            clearInterval(timer);
+            timer = setInterval(countUp, 50);
+
+            /* （慣れてきたら）これでもいい */
+            //  timer = setInterval(() => {
+            //     result.textContent = ++count;
+            // }, 50);
+        });
+
+        stop.addEventListener("click", () => {
+            clearInterval(timer);
+            if (98 <= num && num <= 102) {
+                comment.textContent = `おしい！`;
+            }/* &&　かつ */
+            if (num == 100) {
+                comment.textContent = `すごい！`;
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

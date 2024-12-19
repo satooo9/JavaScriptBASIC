@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>組み込みオブジェクト</title>
+</head>
+
+<body>
+
+    <script>
+
+        /* --- ヒストリー --- */
+        history.back();
+        history.go(-2);
+        /*
+        一つ戻るという動き。
+        お問い合わせホームで確認する際のボタンにおすすめ
+        巻き戻しがされないため、書き換えが行われない
+        */
+
+
+
+        /* --- ロケーション --- */
+        alert(location);
+        location.assign("https://computer.trident.ac.jp/");
+        /*
+        リンクの所得や移動が可能。
+        */
+
+
+
+        /* --- 円運動　三角運動(sin,cos,tan) --- */
+        const el = document.querySelector('div');
+        const center = 100;
+        const radius = 50;
+
+        setInterval(() => {
+            const t = new Date().getTime() / 500;
+
+            const x = center + (Math.cos(t) * radius);
+            const y = center + (Math.sin(t) * radius);
+
+            el.setAttribute('style', `top: ${x}px; left: ${y}px;`)
+        }, 10);
+        /*
+        観覧車の動きにはちょうどいい動きになる
+        */
+
+
+        /* --- Dateオブジェクト --- */
+        let date = new Date();
+        console.log(date);
+
+        console.log(Date.now());
+
+        console.log(date.getFullYear());
+        console.log(date.getMonth());
+        console.log(date.getDate());
+        console.log(date.getHours());
+        console.log(date.getMinutes());
+        console.log(date.getSeconds());
+
+    </script>
+
+</body>
+
+</html>

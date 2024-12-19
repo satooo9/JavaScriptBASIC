@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>関数とタイマー - おみくじ01 -</title>
+    <title>関数とタイマー - おみくじ02 -</title>
 </head>
 
 <body>
@@ -25,37 +25,35 @@
         const stopBtn = document.querySelector(".stop");
         const pic = document.querySelector(".pic");
         let timer;
+        let num = 0;
+        /* numの追加　順番に数字が増えていけばいいため */
 
         const changePic = () => {
-            const path = `${url}${files[Math.floor(Math.random() * files.length)]}`;
+
+            /* ifを使った場合 */
+            // num++;
+            // if (num > 4) {
+            //     num = 0;
+            // }
+            // const path = ` ${url}${files[num]}`;
+
+
+            const path = `${url}${files[num++ % files.length]}`;
+            /* filesの数分で割るように設定　割った際の余り */
             pic.setAttribute("src", path);
-            timer = setTimeout(changePic, 100);
+            timer = setTimeout(changePic, 500);
         };
 
         startBtn.addEventListener("click", () => {
             clearTimeout(timer);
-            timer = setTimeout(changePic, 100);
+            timer = setTimeout(changePic, 500);
         });
 
         stopBtn.addEventListener("click", () => {
             clearTimeout(timer);
+            num = 0;
+            /* リセットすれば、もう一度始めた際、大吉から始まるようになる */
         });
-
-
-
-        /*
-         ①要素の取得
-         ②クリックイベントの設定　スタートボタンとストップボタン
-          startBtn.addEventListener("click",() => ());　ぐらい
-         ③変数の取得
-         ④関数式の定義　29行目
-          const changePic = () => {};
-         ⑤ランダムな画像を選んで、画像に設定する　30行目、31行目
-         ⑥関数を実行するための定義　32行目
-         ⑦イベントの設定　37行目、41行目
-          ※今回、連打されても通常動くするようにする必要がある
-          上の解決のため、36行目、一度リセットするように、順番に注意
-         */
 
     </script>
 
