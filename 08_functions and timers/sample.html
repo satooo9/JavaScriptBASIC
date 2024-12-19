@@ -9,6 +9,10 @@
 
 <body>
 
+    <h1>見出し</h1>
+    <p>本文</p>
+    <button>ボタン</button>
+
     <script>
 
         // function testFunc(var1 = 10, var2 = 20) {
@@ -23,12 +27,37 @@
         // }
 
 
-        let value = [5, 10, 15, 20, 25];
-        const getAverage = (val) => {
-            return val;
-        }
+        // let value = [5, 10, 15, 20, 25];
 
-        console.log(getAverage(value));
+        // const getAverage = (val) => {
+        //     let num = 0;
+        //     for (let i = 0; i < val.length; i++) {
+        //         num += val[i];
+        //     }
+        //     num /= val.length;
+        //     return num;
+        // };
+
+        // console.log(getAverage(value));
+
+
+
+        // const clickEvent = (element) => {
+        //     console.log[element];
+        //     element.style.color = `#f00`;
+        // };
+
+        // window.addEventListener("click", (e) => {
+        //     clickEvent(e.target);
+        // });
+
+
+        const clickEvent = (e) => {
+            console.log[e.target];
+            e.target.style.color = `#f00`;
+        };
+
+        window.addEventListener("click", clickEvent); //クリックイベントのみの書き方
 
     </script>
 

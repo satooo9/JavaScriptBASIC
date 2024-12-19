@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関数とタイマー - おみくじ01 -</title>
+</head>
+
+<body>
+
+    <div>
+        <button class="start">start</button>
+        <button class="stop">stop</button>
+    </div>
+    <img class="pic" src="https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/omikuji.png" alt="" />
+
+
+    <script>
+
+        const url = 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/';
+        const files = ['daikichi.png', 'chuukichi.png', 'syoukichi.png', 'kyou.png', 'daikyou.png'];
+
+        const startBtn = document.querySelector(".start");
+        const stopBtn = document.querySelector(".stop");
+        const pic = document.querySelector(".pic");
+        let timer;
+
+        const changePic = () => {
+            const result = `${url}${files[Math.floor(Math.random() * files.length)]}`; //画像指定
+            pic.setAttribute("src", result);
+            timer = setTimeout(changePic, 100);
+        };
+
+        startBtn.addEventListener("click", () => {
+            setTimeout(timer);
+            timer = setTimeout(changePic, 100);
+        });
+
+        stopBtn.addEventListener("click", () => {
+            clearTimeout(timer);
+        });
+
+    </script>
+
+</body>
+
+</html>

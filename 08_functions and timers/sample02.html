@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関数とタイマー - タイマー -</title>
+</head>
+
+<body>
+
+    <script>
+
+        /* --- setIntervalでのタイマー処理 --- */
+        // let count = 0;
+        // let timer;
+
+        // const countUp = () => {
+        //     console.log(count++); //++を前に書くと足してからコンソールに表示、後ろはのち
+
+        //     if (count > 5) {
+        //         clearInterval(timer);
+        //     }
+        // }
+
+        // timer = setInterval(countUp, 1000);
+
+
+
+        /* --- 背景色を１秒ごとに変更する --- */
+        // const backColor = () => {
+        //     let r = Math.floor(Math.random() * 256);
+        //     let g = Math.floor(Math.random() * 256);
+        //     let b = Math.floor(Math.random() * 256);
+
+        //     document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        // };
+
+        // setInterval(backColor, 1000);
+
+
+
+        /* --- setTimeoutでのタイマー処理 --- */
+        let count = 0;
+        let timer;
+
+        const countUp = () => {
+            console.log(count++);
+
+            timer = setTimeout(countUp, 1000);
+
+            if (timer > 5) {
+                clearTimeout(timer);
+            }
+        };
+
+        countUp();
+
+    </script>
+
+</body>
+
+</html>
