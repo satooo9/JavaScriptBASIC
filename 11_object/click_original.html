@@ -4,16 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>クリックゲーム</title>
+    <title>クリックゲーム - 動的 -</title>
 </head>
 
 <body>
 
     <h1>click game</h1>
     <div class="monster">
-        <p class="name">名前</p>
-        <img class="pic" src="#" width="200" />
-        <p class="hp">HP:</p>
+        <p></p>
     </div>
 
     <script>
@@ -27,9 +25,22 @@
             },
         };
 
-        const name = document.querySelector(".name");
-        const pic = document.querySelector(".pic");
-        const hp = document.querySelector(".hp");
+        const monster = document.querySelector(".monster");
+
+        const name = document.createElement("p");
+        name.textContent = obj.name;
+        monster.append(name);
+
+
+        const pic = document.createElement("img");
+        pic.setAttribute("src", obj.pic);
+        pic.setAttribute("width", 200);
+        monster.append(pic);
+
+        const hp = document.createElement("p");
+        hp.textContent = `HP:${obj.hp}`;
+        monster.append(hp);
+
 
         /* - - ↓要素の表示 - - */
         name.textContent = obj.name;
@@ -46,6 +57,7 @@
                 }
             }
         });
+
 
     </script>
 
